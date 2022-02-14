@@ -2,6 +2,7 @@
 from tkinter import Tk, Label, Entry, Button
 from tkinter import messagebox
 from scipy.interpolate import interp1d
+# import matplotlib.pyplot as plt
 
 
 def main():
@@ -25,11 +26,14 @@ def hesapx():
         x1.append(int(xx))
     for yy in y:
         y1.append(int(yy))
-    z = xinput3.get()
-    intp = interp1d(x1, y1, fill_value="extrapolate")
-    sonuc = intp(z)
-    print(intp.y, intp.x)
-    Etiket4.config(text=sonuc)
+    if len(x1) != len(y1):
+        messagebox.showinfo(title="uyarı", message="diziler birbirine eşit değil.")
+    else:
+        z = xinput3.get()
+        intp = interp1d(x1, y1, fill_value="extrapolate")
+        sonuc = intp(z)
+        print(intp.y, intp.x)
+        Etiket4.config(text=sonuc)
 
 
 def hesapy():
@@ -41,11 +45,14 @@ def hesapy():
         x1.append(int(xx))
     for yy in y:
         y1.append(int(yy))
-    z = xinput3.get()
-    intp = interp1d(y1, x1, fill_value="extrapolate")
-    sonuc = intp(z)
-    print(intp.y, intp.x)
-    Etiket4.config(text=sonuc)
+    if len(x1) != len(y1):
+        messagebox.showinfo(title="uyarı", message="diziler birbirine eşit değil.")
+    else:
+        z = xinput3.get()
+        intp = interp1d(y1, x1, fill_value="extrapolate")
+        sonuc = intp(z)
+        print(intp.y, intp.x)
+        Etiket4.config(text=sonuc)
 
 
 def destroy_me():
@@ -88,6 +95,12 @@ xbuton2.place(x=20, y=130)
 xbuton2 = Button(Pencere, text="Y", command=hesapy)
 xbuton2.place(x=60, y=130)
 
+
+# def grafik(x: list, y: list):
+#    plt.plot(x, y)
+#    plt.xlabel('x - axis')
+#    plt.ylabel('y - axis')
+#    plt.show()
 
 if __name__ == "__main__":
     main()
