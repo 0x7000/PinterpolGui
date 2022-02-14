@@ -25,12 +25,9 @@ def hesapx():
         x1.append(int(xx))
     for yy in y:
         y1.append(int(yy))
-    print(x1, y1)
     z = xinput3.get()
-    print(z)
     intp = interp1d(x1, y1, fill_value="extrapolate")
     sonuc = intp(z)
-    print(sonuc)
     print(intp.y, intp.x)
     Etiket4.config(text=sonuc)
 
@@ -44,12 +41,9 @@ def hesapy():
         x1.append(int(xx))
     for yy in y:
         y1.append(int(yy))
-    print(x1, y1)
     z = xinput3.get()
-    print(z)
     intp = interp1d(y1, x1, fill_value="extrapolate")
     sonuc = intp(z)
-    print(sonuc)
     print(intp.y, intp.x)
     Etiket4.config(text=sonuc)
 
