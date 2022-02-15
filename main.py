@@ -35,7 +35,7 @@ def hesap(arg: str):
         else:
             intp = interp1d(y1, x1, fill_value="extrapolate")
         sonuc = intp(z)
-        print(intp.y, intp.x)
+        # print(intp.y, intp.x)
         xinput4.delete(0, END)
         xinput4.insert(0, str(sonuc))
 
