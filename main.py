@@ -9,7 +9,7 @@ def main():
     genislik = Pencere.winfo_screenwidth()
     yukseklik = Pencere.winfo_screenheight()
     px = 610
-    py = 200
+    py = 180
     w = int((genislik / 2) - (px / 2))
     h = int((yukseklik / 2) - (py / 2))
     ekran = "{}x{}+{}+{}".format(px, py, w, h)
@@ -85,7 +85,6 @@ xbuton3 = Button(Pencere, text="Y", command=lambda: hesap("y"))
 xbuton3.bind_all("y", lambda x: hesap("y"))
 xbuton3.place(x=70, y=130)
 
-XORY = 0
 
 if __name__ == "__main__":
     main()
