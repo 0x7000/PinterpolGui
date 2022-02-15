@@ -2,7 +2,6 @@
 from tkinter import Tk, Label, Entry, Button, END
 from tkinter import messagebox
 from scipy.interpolate import interp1d
-# import matplotlib.pyplot as plt
 
 
 def main():
@@ -35,7 +34,6 @@ def hesap(arg: str):
         else:
             intp = interp1d(y1, x1, fill_value="extrapolate")
         sonuc = intp(z)
-        # print(intp.y, intp.x)
         xinput4.delete(0, END)
         xinput4.insert(0, str(sonuc))
 
