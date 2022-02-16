@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import tkinter
 from tkinter import Tk, Label, Entry, Button, END, ttk
 from tkinter import messagebox
 from scipy.interpolate import interp1d
@@ -46,10 +47,19 @@ def destroy_me():
         pass
 
 
+def hakkinda():
+    messagebox.showinfo(title="Hakkında", message="interpolasyon ile ara değer hesaplama\n0x7000")
+
+
 Pencere = Tk()
 Pencere.title("İnterpolasyon Hesaplama")
 Pencere.resizable(False, False)
 Pencere.protocol('WM_DELETE_WINDOW', destroy_me)
+
+menubar = tkinter.Menu(Pencere)
+Pencere.configure(menu=menubar)
+menubar.add_command(label="Hakkında", command=hakkinda)
+menubar.add_command(label="Çıkış", command=destroy_me)
 
 Etiket1 = Label(Pencere, text="X :")
 Etiket1.place(x=10, y=10)
