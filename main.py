@@ -21,21 +21,31 @@ def hesap(arg: str):
     y = Xinput2.get().split(",")
     x1 = []
     y1 = []
-    for xx in x:
-        x1.append(int(xx))
-    for yy in y:
-        y1.append(int(yy))
+
+    try:
+        for xx in x:
+            x1.append(int(xx))
+        for yy in y:
+            y1.append(int(yy))
+    except Exception as i:
+        Xinput4.delete(0, END)
+        Xinput4.insert(0, str(i))
+
     if len(x1) != len(y1):
         messagebox.showinfo(title="uyarı", message="diziler birbirine eşit değil.")
     else:
         z = Xinput3.get()
-        if arg == "x":
-            intp = interp1d(x1, y1, fill_value="extrapolate")
-        else:
-            intp = interp1d(y1, x1, fill_value="extrapolate")
-        sonuc = intp(z)
-        Xinput4.delete(0, END)
-        Xinput4.insert(0, str(sonuc))
+        try:
+            if arg == "x":
+                intp = interp1d(x1, y1, fill_value="extrapolate")
+            else:
+                intp = interp1d(y1, x1, fill_value="extrapolate")
+            sonuc = intp(z)
+            Xinput4.delete(0, END)
+            Xinput4.insert(0, str(sonuc))
+        except Exception as e:
+            Xinput4.delete(0, END)
+            Xinput4.insert(0, str(e))
 
 
 def destroy_me():
@@ -48,6 +58,13 @@ def destroy_me():
 
 def hakkinda():
     messagebox.showinfo(title="Hakkında", message="interpolasyon ile ara değer hesaplama\n0x7000")
+
+
+def temizle():
+    Xinput1.delete(0, END)
+    Xinput2.delete(0, END)
+    Xinput3.delete(0, END)
+    Xinput4.delete(0, END)
 
 
 Pencere = Tk()
@@ -82,7 +99,7 @@ Xinput3 = Entry(Pencere)
 Xinput3.place(x=30, y=90)
 
 Xinput4 = Entry(Pencere)
-Xinput4.place(x=230, y=90)
+Xinput4.place(x=230, y=90, width=365)
 
 Xbuton2 = Button(Pencere, text="X", command=lambda: hesap("x"))
 Xbuton2.bind_all("x", lambda x: hesap("x"))
@@ -91,6 +108,9 @@ Xbuton2.place(x=30, y=130)
 Xbuton3 = Button(Pencere, text="Y", command=lambda: hesap("y"))
 Xbuton3.bind_all("y", lambda x: hesap("y"))
 Xbuton3.place(x=70, y=130)
+
+Xbuton4 = Button(Pencere, text="Temizle", command=temizle)
+Xbuton4.place(x=110, y=130)
 
 # ttk içinde "from tkinter import ttk"
 TSeparator1 = ttk.Separator(Pencere)
