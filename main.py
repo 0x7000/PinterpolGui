@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from tkinter import Tk, Label, Entry, Button, END
+from tkinter import Tk, Label, Entry, Button, END, ttk
 from tkinter import messagebox
 from scipy.interpolate import interp1d
 
@@ -83,6 +83,9 @@ xbuton3 = Button(Pencere, text="Y", command=lambda: hesap("y"))
 xbuton3.bind_all("y", lambda x: hesap("y"))
 xbuton3.place(x=70, y=130)
 
+# ttk içinde "from tkinter import ttk"
+TSeparator1 = ttk.Separator(Pencere)
+TSeparator1.place(relx=0.010, rely=0.460,  relwidth=0.97)
 
 if __name__ == "__main__":
     main()
