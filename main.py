@@ -17,25 +17,20 @@ def main():
 
 
 def hesap(arg: str):
-    x = Xinput1.get().split(",")
-    y = Xinput2.get().split(",")
-    x1 = []
-    y1 = []
-
     try:
+        x = Xinput1.get().split(",")
+        y = Xinput2.get().split(",")
+        x1 = []
+        y1 = []
         for xx in x:
             x1.append(int(xx))
         for yy in y:
             y1.append(int(yy))
-    except Exception as i:
-        Xinput4.delete(0, END)
-        Xinput4.insert(0, str(i))
 
-    if len(x1) != len(y1):
-        messagebox.showinfo(title="uyarı", message="diziler birbirine eşit değil.")
-    else:
-        z = Xinput3.get()
-        try:
+        if len(x1) != len(y1):
+            messagebox.showinfo(title="uyarı", message="diziler birbirine eşit değil.")
+        else:
+            z = Xinput3.get()
             if arg == "x":
                 intp = interp1d(x1, y1, fill_value="extrapolate")
             else:
@@ -43,9 +38,9 @@ def hesap(arg: str):
             sonuc = intp(z)
             Xinput4.delete(0, END)
             Xinput4.insert(0, str(sonuc))
-        except Exception as e:
-            Xinput4.delete(0, END)
-            Xinput4.insert(0, str(e))
+    except Exception as e:
+        Xinput4.delete(0, END)
+        Xinput4.insert(0, str(e))
 
 
 def destroy_me():
