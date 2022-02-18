@@ -33,8 +33,10 @@ def hesap(arg: str):
             z = Xinput3.get()
             if arg == "x":
                 intp = interp1d(x1, y1, fill_value="extrapolate")
+                Etiket4.config(text=" Y:  ")
             else:
                 intp = interp1d(y1, x1, fill_value="extrapolate")
+                Etiket4.config(text=" X:  ")
             sonuc = intp(z)
             Xinput4.delete(0, END)
             Xinput4.insert(0, str(sonuc))
