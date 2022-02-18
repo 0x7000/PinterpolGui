@@ -33,9 +33,11 @@ def hesap(arg: str):
             z = Xinput3.get()
             if arg == "x":
                 intp = interp1d(x1, y1, fill_value="extrapolate")
+                Etiket3.config(text="X")
                 Etiket4.config(text=" Y:  ")
             else:
                 intp = interp1d(y1, x1, fill_value="extrapolate")
+                Etiket3.config(text="Y")
                 Etiket4.config(text=" X:  ")
             sonuc = intp(z)
             Xinput4.delete(0, END)
@@ -62,6 +64,8 @@ def temizle():
     Xinput2.delete(0, END)
     Xinput3.delete(0, END)
     Xinput4.delete(0, END)
+    Etiket4.config(text="Sonuç: ")
+    Etiket3.config(text="?")
 
 
 Pencere = Tk()
@@ -80,7 +84,7 @@ Etiket1.place(x=10, y=10)
 Etiket2 = Label(Pencere, text="Y :")
 Etiket2.place(x=10, y=50)
 
-Etiket3 = Label(Pencere, text="Z :")
+Etiket3 = Label(Pencere, text="? :")
 Etiket3.place(x=10, y=90)
 
 Etiket4 = Label(Pencere, text="Sonuc: ")
