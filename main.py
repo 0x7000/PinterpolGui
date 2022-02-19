@@ -47,7 +47,6 @@ def hesap(arg: str):
 
 
 def destroy_me():
-    # kaynak kod https://github.com/python/cpython/blob/3.10/Lib/tkinter/messagebox.py
     msg = messagebox.askyesno(title="Çıkış", message="Çıkmak İstiyor musunuz?", default="no", icon="warning")
     if msg:
         Pencere.destroy()
