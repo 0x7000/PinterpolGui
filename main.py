@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from builtins import print
 from tkinter import Tk, Label, Entry, Button, END, ttk, Menu
 from tkinter import messagebox
 from scipy.interpolate import interp1d
@@ -23,10 +24,10 @@ def hesap(arg: str):
         x1 = []
         y1 = []
         for xx in x:
-            x1.append(int(xx))
+            x1.append(float(xx))
         for yy in y:
-            y1.append(int(yy))
-
+            y1.append(float(yy))
+        print(x1, y1)
         if len(x1) != len(y1):
             messagebox.showinfo(title="uyarı", message="diziler birbirine eşit değil.")
         else:
