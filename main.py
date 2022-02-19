@@ -31,11 +31,11 @@ def hesap(arg: str):
         else:
             z = float(Xinput3.get())
             if arg == "x":
-                intp = interp1d(x1, y1, fill_value="extrapolate")
+                intp = interp1d(x1, y1, fill_value="extrapolate", kind="linear")
                 Etiket3.config(text="X")
                 Etiket4.config(text=" Y:  ")
             else:
-                intp = interp1d(y1, x1, fill_value="extrapolate")
+                intp = interp1d(y1, x1, fill_value="extrapolate", kind="linear")
                 Etiket3.config(text="Y")
                 Etiket4.config(text=" X:  ")
             sonuc = intp(z)
